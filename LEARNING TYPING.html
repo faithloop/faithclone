@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>auto typing</title>
+		
+	</head>
+	<style>
+ .will{
+     color:white;
+	 text-align: center;
+	 border-right: 1px solid white;
+	 font-size: 30px;
+	 font-weight: 700;
+	 
+ }
+ body{
+	background-color: blue;
+	text-align: center;
+ }
+  /* *.input-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 42px;
+      background-color:blue;
+      margin-left: 8px;
+}  
+  */
+</style>
+	<body>
+		<span id="typing" class="will"></span>
+        <!-- <span class="input-cursor"></span> -->
+		<!-- <span class="wrap"></span> -->
+	</body>
+</html>
+<script>
+	let fullSpeech = [
+		'(x)',
+		" Hello, My name is Faith Olamilekan",
+        "I study in SQI college of ICT",
+		"The name of my tutor is Dev.Tzee",
+		'I study web!',
+		'My head no carry books'
+        
+
+	];
+
+	count = 0;
+	
+	index = 0;
+
+	function typin(params) {
+		
+
+		t = setTimeout("work()", 500);
+	
+	}
+	function removing(params){
+		tt = setTimeout("deleting()",4000);
+	}
+
+
+	function deleting(){
+		
+		if (count > fullSpeech[index].length) {
+			typin();
+			typing.innerHTML = typing.innerHTML.substr(
+				0,
+				typing.innerHTML.length - 1
+			);
+		}
+		if (typing.innerHTML.length == 0) {
+			count = 0;
+			index++;
+			
+		}
+
+		
+	}
+	function work() {
+
+
+		typing.innerHTML += fullSpeech[index].substr(count, 1);
+		if (count < fullSpeech[index].length) {
+			typin();
+		}
+		count++;
+	 removing()
+		
+		
+		if (index > fullSpeech.length - 1) {
+			
+			clearTimeout(t);
+			
+		}
+		if (index == fullSpeech.length) {
+			index=0;
+			work()
+		}
+		
+	}
+	typin();
+	
+
+</script>
